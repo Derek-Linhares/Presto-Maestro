@@ -7,18 +7,21 @@ var notas = document.getElementsByClassName("notas");
 let reproduzindo = false;
 var podeMudar = false;
 var podeTocar = true;
+var ligado1 = document.getElementById("luzinha1");
 function alternarPiano() {
   pianoLigado = !pianoLigado;
   var luz = document.getElementById("luz");
   luz.style.visibility = pianoLigado ? "visible" : "hidden";
 
   if (pianoLigado) {
+    ligado1.style.backgroundColor = "greenyellow";
     mostrandoMensagem = true;
     display.textContent = "";
     index = 0; //
 
     mostrarMensagem();
   } else {
+    desligarLuzes();
     podeMudar = false;
     pararTodosOsAudios();
     mostrandoMensagem = false;
@@ -152,6 +155,11 @@ function selecionarOpcao() {
     switch (opcaoSelecionada) {
       case "Tocar Total Eclipse of the Heart":
         playTurn();
+        display.innerText = "Parar Total Eclipse of the Heart";
+        break;
+      case "Parar Total Eclipse of the Heart":
+        pararTodosOsAudios();
+        display.innerText = "Tocar Total Eclipse of the Heart";
         break;
       case "Iniciar Gravacao":
         display.innerText = "Parar Gravacao";
@@ -226,4 +234,27 @@ function pararReproducao() {
   reproduzindo = false;
   podeTocar = true;
   console.log("Reprodução interrompida.");
+}
+
+function desligarLuzes() {
+  var luzinha1 = document.getElementById("luzinha1");
+  var luzinha2 = document.getElementById("luzinha2");
+  var luzinha3 = document.getElementById("luzinha3");
+  var luzinha4 = document.getElementById("luzinha4");
+
+  var luzes = [luzinha1, luzinha2, luzinha3, luzinha4];
+
+  for (var i = 0; i < luzes.length; i++) {
+    luzes[i].style.backgroundColor = "black";
+  }
+}
+
+function ligarLuzes(botao) {
+  var todasAsLuzes = document.querySelectorAll("[id^='luzinha']");
+  todasAsLuzes.forEach(function (luzinha) {
+    luzinha.style.backgroundColor = "black";
+  });
+
+  var luzinha = botao.querySelector("[id^='luzinha']");
+  luzinha.style.backgroundColor = "greenyellow";
 }
