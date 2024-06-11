@@ -1,0 +1,280 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url(./assets/chao.png);
+  background-size: cover;
+  background-position: center;
+  user-select: none;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  transform: scale(1.8);
+}
+
+.container {
+  width: 1500px;
+  height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+}
+
+#borda {
+  background-color: #ff0000;
+  width: 1400px;
+  height: 300px;
+  border-top-right-radius: 20%;
+  border-top-left-radius: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: end;
+  border: solid black;
+  box-shadow: 8px 12px rgba(0, 0, 0, 0.8);
+}
+
+#teclado {
+  display: flex;
+  flex-direction: row;
+}
+
+.teclasBrancas {
+  width: 75px;
+  height: 150px;
+  background-color: aliceblue;
+  border: solid, black;
+  display: flex;
+  justify-content: center;
+  align-items: end;
+  cursor: pointer;
+}
+.teclasPretas {
+  width: 45px;
+  height: 100px;
+  background-color: black;
+  border: solid, black;
+  display: flex;
+  justify-content: center;
+  align-items: end;
+  cursor: pointer;
+}
+
+#dosus {
+  color: purple;
+  position: absolute;
+  left: 240px;
+}
+
+#resus {
+  position: absolute;
+  left: 315px;
+  color: green;
+}
+
+#fasus {
+  position: absolute;
+  left: 465px;
+  color: orange;
+}
+
+#solsus {
+  position: absolute;
+  left: 540px;
+  color: crimson;
+}
+
+#lasus {
+  position: absolute;
+  left: 615px;
+  color: red;
+}
+
+#dosus2 {
+  color: red;
+  position: absolute;
+  left: 765px;
+  color: purple;
+}
+
+#resus2 {
+  position: absolute;
+  left: 840px;
+  color: green;
+}
+
+#fasus2 {
+  position: absolute;
+  left: 990px;
+  color: orange;
+}
+
+#solsus2 {
+  position: absolute;
+  left: 1065px;
+  color: crimson;
+}
+
+#lasus2 {
+  position: absolute;
+  left: 1140px;
+  color: red;
+}
+
+#marca {
+  position: absolute;
+  top: 150px;
+  left: 1100px;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-size: 40px;
+  font-family: "Great Vibes", cursive;
+  font-weight: 400;
+  font-style: bold;
+}
+
+#marca2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 100px;
+  position: absolute;
+  top: 270px;
+  left: 70px;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-size: 30px;
+  font-family: "Great Vibes", cursive;
+  font-weight: 400;
+  font-style: bold;
+}
+
+.teclasBrancas:active {
+  transform: translateY(1px);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.teclasPretas:active {
+  transform: translateY(1px);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+#ligar {
+  position: absolute;
+  top: 160px;
+  left: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+#imagem {
+  width: 20px;
+  height: 20px;
+  background-image: url(./assets/poder.png);
+  background-size: cover;
+  background-position: center;
+}
+
+#botao {
+  width: 75px;
+  height: 20px;
+  background-color: black;
+  align-items: center;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+#luz {
+  width: 40px;
+  height: 10px;
+  margin-left: -2px;
+  border-radius: 10px;
+  background-color: rgb(52, 243, 52);
+  box-shadow: 1px 1px 1px rgba(115, 245, 115, 0.2);
+  visibility: hidden;
+}
+
+#select {
+  width: 40px;
+  height: 40px;
+  border-radius: 100%;
+  background-color: #4c4b63;
+  cursor: pointer;
+  position: absolute;
+  top: 102px;
+  left: 915px;
+}
+
+#triangulo-para-baixo {
+  width: 0;
+  height: 0;
+  border-left: 25px solid transparent;
+  border-right: 25px solid transparent;
+  border-top: 25px solid #949396;
+  cursor: pointer;
+  position: absolute;
+  top: 150px;
+  left: 910px;
+}
+
+#triangulo-para-cima {
+  width: 0;
+  height: 0;
+  border-left: 25px solid transparent;
+  border-right: 25px solid transparent;
+  border-bottom: 25px solid #949396;
+  cursor: pointer;
+  position: absolute;
+  top: 70px;
+  left: 910px;
+}
+
+#triangulo-para-cima:active {
+  transform: translateY(1px);
+}
+
+#select:active {
+  transform: translateY(1px);
+}
+
+#triangulo-para-baixo:active {
+  transform: translateY(1px);
+}
+
+#displaybox {
+  font-family: "DS-Digital", sans-serif;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+  width: 280px;
+  height: 130px;
+  position: absolute;
+  background-color: aqua;
+  top: 60px;
+  left: 612px;
+  border: 5px solid black;
+  padding: 15px;
+}
+
+.notas {
+  visibility: hidden;
+}
+
+@media screen and (max-width: 1920px) and (max-height: 1080px) {
+  body {
+    transform: scale(1.35);
+  }
+}

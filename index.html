@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Piano</title>
+    <link rel="stylesheet" href="./style.css" />
+    <link href="https://fonts.cdnfonts.com/css/ds-digital" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+
+</head>
+
+<body onselectstart="return false;">
+    <div class="container">
+        <div id="borda">
+            <div id="teclado">
+                <div class="teclasBrancas" id="do">
+                    <div class="notas">Dó</div>
+                </div>
+                <div class="teclasBrancas" id="re">
+                    <div class="notas">Ré</div>
+                </div>
+                <div class="teclasBrancas" id="mi">
+                    <div class="notas">Mi</div>
+                </div>
+                <div class="teclasBrancas" id="fa">
+                    <div class="notas">Fá</div>
+                </div>
+                <div class="teclasBrancas" id="sol">
+                    <div class="notas">Sol</div>
+                </div>
+                <div class="teclasBrancas" id="la">
+                    <div class="notas">Lá</div>
+                </div>
+                <div class="teclasBrancas" id="si">
+                    <div class="notas">Si</div>
+                </div>
+                <div class="teclasBrancas" id="do2">
+                    <div class="notas">Dó</div>
+                </div>
+                <div class="teclasBrancas" id="re2">
+                    <div class="notas">Ré</div>
+                </div>
+                <div class="teclasBrancas" id="mi2">
+                    <div class="notas">Mi</div>
+                </div>
+                <div class="teclasBrancas" id="fa2">
+                    <div class="notas">Fá</div>
+                </div>
+                <div class="teclasBrancas" id="sol2">
+                    <div class="notas">Sol</div>
+                </div>
+                <div class="teclasBrancas" id="la2">
+                    <div class="notas">Lá</div>
+                </div>
+                <div class="teclasBrancas" id="si2">
+                    <div class="notas">Si</div>
+                </div>
+                <div class="teclasBrancas" id="do3">
+                    <div class="notas">Dó</div>
+                </div>
+                <div class="teclasPretas" id="resus">
+                    <div class="notas">Ré#</div>
+                </div>
+                <div class="teclasPretas" id="fasus">
+                    <div class="notas">Fá#</div>
+                </div>
+                <div class="teclasPretas" id="solsus">
+                    <div class="notas">Sol#</div>
+                </div>
+                <div class="teclasPretas" id="dosus2">
+                    <div class="notas">Dó#</div>
+                </div>
+                <div class="teclasPretas" id="resus2">
+                    <div class="notas">Ré#</div>
+                </div>
+                <div class="teclasPretas" id="fasus2">
+                    <div class="notas">Fá#</div>
+                </div>
+                <div class="teclasPretas" id="solsus2">
+                    <div class="notas">Sol#</div>
+                </div>
+                <div class="teclasPretas" id="lasus2">
+                    <div class="notas">Lá#</div>
+                </div>
+                <div class="teclasPretas" id="dosus">
+                    <div class="notas">Dó#</div>
+                </div>
+                <div class="teclasPretas" id="lasus">
+                    <div class="notas">Lá#</div>
+                </div>
+                <div id="marca">PrestoMaestro</div>
+                <div id="marca2">Synphonic 8000</div>
+                <div id="select" onclick="selecionarOpcao()"></div>
+                <div id="triangulo-para-baixo" onclick="moverParaBaixo()"></div>
+                <div id="triangulo-para-cima" onclick="moverParaCima()"></div>
+                <div id="displaybox">
+                    <div id="display"></div>
+                </div>
+
+                <div id="ligar">
+                    <div id="imagem">
+                    </div>
+                    <div id="botao" onclick="alternarPiano()">
+                        <div id="luz"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <audio src="./assets/do.mp3" id="doAudio"></audio>
+    <audio src="./assets/dosus.mp3" id="dosusAudio"></audio>
+    <audio src="./assets/re.mp3" id="reAudio"></audio>
+    <audio src="./assets/resus.mp3" id="resusAudio"></audio>
+    <audio src="./assets/mi.mp3" id="miAudio"></audio>
+    <audio src="./assets/fa.mp3" id="faAudio"></audio>
+    <audio src="./assets/fasus.mp3" id="fasusAudio"></audio>
+    <audio src="./assets/sol.mp3" id="solAudio"></audio>
+    <audio src="./assets/solsus.mp3" id="solsusAudio"></audio>
+    <audio src="./assets/la.mp3" id="laAudio"></audio>
+    <audio src="./assets/lasus.mp3" id="lasusAudio"></audio>
+    <audio src="./assets/si.mp3" id="siAudio"></audio>
+
+    <audio src="./assets/do2.mp3" id="do2Audio"></audio>
+    <audio src="./assets/dosus2.mp3" id="dosus2Audio"></audio>
+    <audio src="./assets/re2.mp3" id="re2Audio"></audio>
+    <audio src="./assets/resus2.mp3" id="resus2Audio"></audio>
+    <audio src="./assets/mi2.mp3" id="mi2Audio"></audio>
+    <audio src="./assets/fa2.mp3" id="fa2Audio"></audio>
+    <audio src="./assets/fasus2.mp3" id="fasus2Audio"></audio>
+    <audio src="./assets/sol2.mp3" id="sol2Audio"></audio>
+    <audio src="./assets/solsus2.mp3" id="solsus2Audio"></audio>
+    <audio src="./assets/la2.mp3" id="la2Audio"></audio>
+    <audio src="./assets/lasus2.mp3" id="lasus2Audio"></audio>
+    <audio src="./assets/si2.mp3" id="si2Audio"></audio>
+
+    <audio src="./assets/do3.mp3" id="do3Audio"></audio>
+    <audio src="./assets/turnAround.mp3" id="turnAround"></audio>
+
+    <script src="./script.js"></script>
+</body>
+
+</html>
