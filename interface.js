@@ -1,54 +1,39 @@
 var pianoLigado = false;
 var mostrandoMensagem = false;
-var turn = document.getElementById("turnAround");
-var isRecording = false;
-var recordedData = [];
-var notas = document.getElementsByClassName("notas");
-let reproduzindo = false;
 var podeMudar = false;
 var podeTocar = true;
-var ligado1 = document.getElementById("luzinha1");
+var desligado = true;
+var display = document.getElementById("display");
+var displayBox = document.getElementById("displaybox");
+var piscarInterval = null;
+
 function alternarPiano() {
   pianoLigado = !pianoLigado;
   var luz = document.getElementById("luz");
   luz.style.visibility = pianoLigado ? "visible" : "hidden";
 
   if (pianoLigado) {
-    ligado1.style.backgroundColor = "greenyellow";
+    animacaoBoasVindas();
+    desligado = false;
     mostrandoMensagem = true;
     display.textContent = "";
-    index = 0; //
+    display.style.visibility = "visible";
+    displayBox.style.backgroundColor = "aqua";
+    podeMostrar = true;
 
     mostrarMensagem();
   } else {
     desligarLuzes();
     podeMudar = false;
     pararTodosOsAudios();
-    mostrandoMensagem = false;
+    podeMostrar = false;
+    clearInterval(piscarInterval);
+    piscarInterval = null;
+    desligado = true;
     display.textContent = "";
-    display.style.visibility = hidden;
-  }
-}
-
-function pararTodosOsAudios() {
-  var allAudioPlayers = document.querySelectorAll("audio");
-  allAudioPlayers.forEach(function (audio) {
-    audio.pause();
-    audio.currentTime = 0;
-  });
-}
-
-function tocarSom(idAudio) {
-  if (pianoLigado) {
-    var audioPlayer = document.getElementById(idAudio);
-    audioPlayer.currentTime = 0;
-    audioPlayer.play();
-
-    if (isRecording) {
-      var note = idAudio.replace("Audio", "");
-      var time = new Date().getTime();
-      recordedData.push({ note: note, time: time });
-    }
+    mostrandoMensagem = false;
+    display.style.visibility = "hidden";
+    displayBox.style.backgroundColor = "black";
   }
 }
 
@@ -56,35 +41,48 @@ function toggleGravacao() {
   isRecording = !isRecording;
   if (isRecording) {
     recordedData = [];
-    console.log("gravando.");
+    console.log("Gravando.");
   }
 }
 
 function reproduzirGravacao() {
   if (recordedData.length === 0 && podeTocar) {
-    display.innerText = "Nenhuma Gravacao";
+    display.innerText = "Nenhuma Gravação";
     return;
   }
+
   reproduzindo = true;
   isRecording = false;
 
   recordedData.forEach(function (data, index) {
-    setTimeout(function () {
-      tocarSom(data.note + "Audio");
+    var timeout = setTimeout(function () {
+      tocarSomPiano(data.note);
     }, data.time - recordedData[0].time);
+
+    timeouts.push(timeout);
   });
+}
+
+function pararReproducao() {
+  timeouts.forEach(function (timeout) {
+    clearTimeout(timeout);
+  });
+
+  pararTodosOsAudios();
+  reproduzindo = false;
+  podeTocar = true;
+  console.log("Reprodução interrompida.");
 }
 
 document
   .querySelectorAll(".teclasBrancas, .teclasPretas")
   .forEach(function (tecla) {
     tecla.addEventListener("mousedown", function () {
-      var idAudio = this.id + "Audio";
-      tocarSom(idAudio);
+      var idNota = this.id;
+      tocarSomPiano(idNota);
     });
   });
 
-var display = document.getElementById("display");
 var message = "Descubra a harmonia perfeita entre tradicao e inovacao.";
 var index = 0;
 
@@ -105,43 +103,21 @@ function exibirProximaLetra() {
 }
 
 function piscar() {
-  var count = 0;
-  var interval = setInterval(function () {
-    display.textContent = "PrestoMaestro Symphonic 8000";
-    display.style.visibility = count % 2 === 0 ? "visible" : "hidden";
-    count++;
-    if (count === 9) {
-      clearInterval(interval);
-      display.textContent = "Tocar Total Eclipse of the Heart";
-      podeMudar = true;
-    }
-  }, 600);
-}
-
-function playSound(audio) {
-  audio.currentTime = 0;
-  audio.play();
-}
-
-function playTurn() {
-  if (pianoLigado) {
-    playSound(turn);
-  } else {
-    pararTodosOsAudios();
+  if (podeMostrar) {
+    var count = 0;
+    piscarInterval = setInterval(function () {
+      display.textContent = "PrestoMaestro Symphonic 8000";
+      display.style.visibility = count % 2 === 0 ? "visible" : "hidden";
+      count++;
+      if (count === 9) {
+        clearInterval(piscarInterval);
+        piscarInterval = null;
+        display.textContent = "Tocar Total Eclipse of the Heart";
+        podeMudar = true;
+      }
+    }, 600);
   }
 }
-
-document.oncontextmenu = document.body.oncontextmenu = function () {
-  return false;
-};
-
-var opcoes = [
-  "Tocar Total Eclipse of the Heart",
-  "Iniciar Gravacao",
-  "Reproduzir Gravacao",
-  "Mostrar Notas",
-];
-var indiceAtual = 0;
 
 function mostrarOpcao() {
   var display = document.getElementById("display");
@@ -188,13 +164,14 @@ function selecionarOpcao() {
         break;
 
       case "Ocultar Notas":
-        display.innerText = "Ocultar Notas";
+        display.innerText = "Mostrar Notas";
         ocultarNotas();
         break;
       default:
     }
   }
 }
+
 function moverParaCima() {
   if (indiceAtual > 0 && pianoLigado && podeMudar) {
     indiceAtual--;
@@ -216,7 +193,7 @@ function mostrarNotas() {
   for (var i = 0; i < notas.length; i++) {
     notas[i].style.visibility = "visible";
   }
-  console.log("mostrando notas");
+  console.log("Mostrando notas");
 }
 
 function ocultarNotas() {
@@ -226,14 +203,7 @@ function ocultarNotas() {
   for (var i = 0; i < notas.length; i++) {
     notas[i].style.visibility = "hidden";
   }
-  console.log("ocultando notas");
-}
-
-function pararReproducao() {
-  pararTodosOsAudios();
-  reproduzindo = false;
-  podeTocar = true;
-  console.log("Reprodução interrompida.");
+  console.log("Ocultando notas");
 }
 
 function desligarLuzes() {
@@ -250,11 +220,85 @@ function desligarLuzes() {
 }
 
 function ligarLuzes(botao) {
-  var todasAsLuzes = document.querySelectorAll("[id^='luzinha']");
-  todasAsLuzes.forEach(function (luzinha) {
-    luzinha.style.backgroundColor = "black";
+  if (!desligado) {
+    var todasAsLuzes = document.querySelectorAll("[id^='luzinha']");
+    todasAsLuzes.forEach(function (luzinha) {
+      luzinha.style.backgroundColor = "black";
+    });
+
+    var luzinhaId = botao.id.replace("som", "luzinha");
+    var luzinha = document.getElementById(luzinhaId);
+    if (luzinha) {
+      luzinha.style.backgroundColor = "greenyellow";
+    }
+
+    switch (luzinha.id) {
+      case "luzinha1":
+        som1 = true;
+        som2 = false;
+        som3 = false;
+        som4 = false;
+        break;
+      case "luzinha2":
+        som1 = false;
+        som2 = true;
+        som3 = false;
+        som4 = false;
+        break;
+      case "luzinha3":
+        som1 = false;
+        som2 = false;
+        som3 = true;
+        som4 = false;
+        break;
+      case "luzinha4":
+        som1 = false;
+        som2 = false;
+        som3 = false;
+        som4 = true;
+        break;
+      default:
+        break;
+    }
+  }
+}
+
+function animacaoBoasVindas() {
+  var luzes = [
+    document.getElementById("luzinha1"),
+    document.getElementById("luzinha2"),
+    document.getElementById("luzinha3"),
+    document.getElementById("luzinha4"),
+  ];
+
+  var delay = 480; // Tempo de delay entre cada ação (em milissegundos)
+
+  // Função para ligar e desligar as luzes sequencialmente
+  luzes.forEach((luz, index) => {
+    setTimeout(() => {
+      luz.style.backgroundColor = "greenyellow";
+    }, delay * index * 2);
+
+    setTimeout(() => {
+      luz.style.backgroundColor = "black";
+    }, delay * (index * 2 + 1));
   });
 
-  var luzinha = botao.querySelector("[id^='luzinha']");
-  luzinha.style.backgroundColor = "greenyellow";
+  // Função para piscar todas as luzes juntas 4 vezes
+  for (let i = 0; i < 8; i++) {
+    setTimeout(() => {
+      luzes.forEach((luz) => {
+        luz.style.backgroundColor = "greenyellow";
+      });
+    }, delay * (8 + i * 2));
+
+    setTimeout(() => {
+      luzes.forEach((luz) => {
+        luz.style.backgroundColor = "black";
+      });
+    }, delay * (9 + i * 2));
+  }
+  setTimeout(() => {
+    luzes[0].style.backgroundColor = "greenyellow";
+  }, delay * 24);
 }

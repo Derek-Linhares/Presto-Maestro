@@ -256,17 +256,31 @@ body {
   font-family: "DS-Digital", sans-serif;
   text-align: center;
   display: flex;
+  border-radius: 15px;
   justify-content: center;
   align-items: center;
   font-size: 30px;
   width: 280px;
   height: 130px;
   position: absolute;
-  background-color: aqua;
+  background-color: black;
   top: 60px;
   left: 612px;
   border: 5px solid black;
   padding: 15px;
+}
+
+#vidro {
+  width: 280px;
+  height: 130px;
+  position: absolute;
+  border-radius: 15px;
+  background: rgba(255, 255, 255, 0.15);
+
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(0.3px);
+  -webkit-backdrop-filter: blur(4px);
+  border: 1px solid rgba(8, 8, 8, 0.11);
 }
 
 .notas {
@@ -308,16 +322,21 @@ body {
   cursor: pointer;
 }
 
+.botaoSom:active {
+  transform: translateY(1px);
+}
+
 #luzinha1 {
   width: 40px;
   height: 10px;
   background-color: black;
   border: 4px solid black;
   position: absolute;
-  top: -20px;
-  left: -5px;
+  top: 115px;
+  left: 370px;
   cursor: default;
   border-radius: 20px;
+  z-index: 5;
 }
 
 #luzinha2 {
@@ -326,8 +345,8 @@ body {
   background-color: black;
   border: 4px solid black;
   position: absolute;
-  top: -20px;
-  left: -5px;
+  top: 115px;
+  left: 420px;
   cursor: default;
   border-radius: 20px;
 }
@@ -337,8 +356,8 @@ body {
   background-color: black;
   border: 4px solid black;
   position: absolute;
-  top: -20px;
-  left: -5px;
+  top: 115px;
+  left: 470px;
   cursor: default;
   border-radius: 20px;
 }
@@ -348,8 +367,8 @@ body {
   background-color: black;
   border: 4px solid black;
   position: absolute;
-  top: -20px;
-  left: -5px;
+  top: 115px;
+  left: 520px;
   cursor: default;
   border-radius: 20px;
 }

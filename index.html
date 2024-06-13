@@ -16,6 +16,7 @@
 <body onselectstart="return false;">
     <div class="container">
         <div id="borda">
+
             <div id="teclado">
                 <div class="teclasBrancas" id="do">
                     <div class="notas">Dó</div>
@@ -97,20 +98,25 @@
                 <div id="select" onclick="selecionarOpcao()"></div>
                 <div id="triangulo-para-baixo" onclick="moverParaBaixo()"></div>
                 <div id="triangulo-para-cima" onclick="moverParaCima()"></div>
+                <div id="luzinha1"></div>
                 <div class="botaoSom" id="som1" onclick="ligarLuzes(this)">
-                    <div id="luzinha1"></div>
+
                 </div>
+                <div id="luzinha2"></div>
                 <div class="botaoSom" id="som2" onclick="ligarLuzes(this)">
-                    <div id="luzinha2"></div>
+
                 </div>
+                <div id="luzinha3"></div>
                 <div class="botaoSom" id="som3" onclick="ligarLuzes(this)">
-                    <div id="luzinha3"></div>
+
                 </div>
+                <div id="luzinha4"></div>
                 <div class="botaoSom" id="som4" onclick="ligarLuzes(this)">
-                    <div id="luzinha4"></div>
+
                 </div>
                 <div id="displaybox">
                     <div id="display"></div>
+                    <div id="vidro"></div>
                 </div>
 
                 <div id="ligar">
@@ -126,36 +132,11 @@
 
 
 
-    <audio src="./assets/do.mp3" id="doAudio"></audio>
-    <audio src="./assets/dosus.mp3" id="dosusAudio"></audio>
-    <audio src="./assets/re.mp3" id="reAudio"></audio>
-    <audio src="./assets/resus.mp3" id="resusAudio"></audio>
-    <audio src="./assets/mi.mp3" id="miAudio"></audio>
-    <audio src="./assets/fa.mp3" id="faAudio"></audio>
-    <audio src="./assets/fasus.mp3" id="fasusAudio"></audio>
-    <audio src="./assets/sol.mp3" id="solAudio"></audio>
-    <audio src="./assets/solsus.mp3" id="solsusAudio"></audio>
-    <audio src="./assets/la.mp3" id="laAudio"></audio>
-    <audio src="./assets/lasus.mp3" id="lasusAudio"></audio>
-    <audio src="./assets/si.mp3" id="siAudio"></audio>
 
-    <audio src="./assets/do2.mp3" id="do2Audio"></audio>
-    <audio src="./assets/dosus2.mp3" id="dosus2Audio"></audio>
-    <audio src="./assets/re2.mp3" id="re2Audio"></audio>
-    <audio src="./assets/resus2.mp3" id="resus2Audio"></audio>
-    <audio src="./assets/mi2.mp3" id="mi2Audio"></audio>
-    <audio src="./assets/fa2.mp3" id="fa2Audio"></audio>
-    <audio src="./assets/fasus2.mp3" id="fasus2Audio"></audio>
-    <audio src="./assets/sol2.mp3" id="sol2Audio"></audio>
-    <audio src="./assets/solsus2.mp3" id="solsus2Audio"></audio>
-    <audio src="./assets/la2.mp3" id="la2Audio"></audio>
-    <audio src="./assets/lasus2.mp3" id="lasus2Audio"></audio>
-    <audio src="./assets/si2.mp3" id="si2Audio"></audio>
-
-    <audio src="./assets/do3.mp3" id="do3Audio"></audio>
     <audio src="./assets/turnAround.mp3" id="turnAround"></audio>
 
-    <script src="./script.js"></script>
+    <script src="./interface.js"></script>
+    <script src="./logica.js"></script>
 </body>
 
 </html>
