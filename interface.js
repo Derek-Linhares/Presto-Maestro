@@ -37,6 +37,10 @@ function alternarPiano() {
   }
 }
 
+document.oncontextmenu = document.body.oncontextmenu = function () {
+  return false;
+};
+
 function toggleGravacao() {
   isRecording = !isRecording;
   if (isRecording) {
