@@ -285,6 +285,13 @@ body {
 
 .notas {
   visibility: hidden;
+  width: 35px;
+  height: 33px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  word-break: break-all;
 }
 
 .botaoSom {
@@ -375,6 +382,18 @@ body {
 
 @media screen and (max-width: 1920px) and (max-height: 1080px) {
   body {
-    transform: scale(1.35);
+    transform: scale(1.25);
+  }
+}
+
+@media screen and (max-width: 1600px) and (max-height: 900px) {
+  body {
+    transform: scale(1);
+  }
+}
+
+@media screen and (max-width: 1366px) and (max-height: 768px) {
+  body {
+    transform: scale(0.85);
   }
 }

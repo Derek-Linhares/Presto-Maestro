@@ -1,15 +1,22 @@
-var pianoLigado = false;
-var mostrandoMensagem = false;
-var podeMudar = false;
-var podeTocar = true;
-var desligado = true;
-var display = document.getElementById("display");
-var displayBox = document.getElementById("displaybox");
-var piscarInterval = null;
+// Variáveis de controle do piano
+let pianoLigado = false;
+let mostrandoMensagem = false;
+let podeMudar = false;
+let podeTocar = true;
+let desligado = true;
 
+// Elementos do DOM
+let display = document.getElementById("display");
+let displayBox = document.getElementById("displaybox");
+
+// Controle de animação
+let piscarInterval = null;
+let animationTimeouts = []; // Array para armazenar os timeouts da animação
+
+// Função para alternar o estado do piano (ligado/desligado)
 function alternarPiano() {
   pianoLigado = !pianoLigado;
-  var luz = document.getElementById("luz");
+  let luz = document.getElementById("luz");
   luz.style.visibility = pianoLigado ? "visible" : "hidden";
 
   if (pianoLigado) {
@@ -34,13 +41,21 @@ function alternarPiano() {
     mostrandoMensagem = false;
     display.style.visibility = "hidden";
     displayBox.style.backgroundColor = "black";
+
+    // Limpar todos os timeouts da animação de boas-vindas
+    animationTimeouts.forEach(function (timeout) {
+      clearTimeout(timeout);
+    });
+    animationTimeouts = [];
   }
 }
 
+// Impedir o menu de contexto padrão no documento
 document.oncontextmenu = document.body.oncontextmenu = function () {
   return false;
 };
 
+// Função para alternar o estado de gravação
 function toggleGravacao() {
   isRecording = !isRecording;
   if (isRecording) {
@@ -49,6 +64,7 @@ function toggleGravacao() {
   }
 }
 
+// Função para reproduzir a gravação
 function reproduzirGravacao() {
   if (recordedData.length === 0 && podeTocar) {
     display.innerText = "Nenhuma Gravação";
@@ -59,7 +75,7 @@ function reproduzirGravacao() {
   isRecording = false;
 
   recordedData.forEach(function (data, index) {
-    var timeout = setTimeout(function () {
+    let timeout = setTimeout(function () {
       tocarSomPiano(data.note);
     }, data.time - recordedData[0].time);
 
@@ -67,6 +83,7 @@ function reproduzirGravacao() {
   });
 }
 
+// Função para parar a reprodução
 function pararReproducao() {
   timeouts.forEach(function (timeout) {
     clearTimeout(timeout);
@@ -78,23 +95,27 @@ function pararReproducao() {
   console.log("Reprodução interrompida.");
 }
 
+// Adicionar eventos de clique às teclas do piano
 document
   .querySelectorAll(".teclasBrancas, .teclasPretas")
   .forEach(function (tecla) {
     tecla.addEventListener("mousedown", function () {
-      var idNota = this.id;
+      let idNota = this.id;
       tocarSomPiano(idNota);
     });
   });
 
-var message = "Descubra a harmonia perfeita entre tradicao e inovacao.";
-var index = 0;
+// Mensagem a ser exibida no display
+let message = "Descubra a harmonia perfeita entre tradicao e inovacao.";
+let index = 0;
 
+// Função para mostrar a mensagem letra por letra
 function mostrarMensagem() {
   index = 0;
   exibirProximaLetra();
 }
 
+// Função recursiva para exibir a próxima letra da mensagem
 function exibirProximaLetra() {
   if (pianoLigado && index < message.length) {
     display.textContent += message[index];
@@ -106,9 +127,10 @@ function exibirProximaLetra() {
   }
 }
 
+// Função para fazer o display piscar após exibir a mensagem
 function piscar() {
   if (podeMostrar) {
-    var count = 0;
+    let count = 0;
     piscarInterval = setInterval(function () {
       display.textContent = "PrestoMaestro Symphonic 8000";
       display.style.visibility = count % 2 === 0 ? "visible" : "hidden";
@@ -123,115 +145,51 @@ function piscar() {
   }
 }
 
-function mostrarOpcao() {
-  var display = document.getElementById("display");
-  display.innerText = opcoes[indiceAtual];
-}
-
-function selecionarOpcao() {
-  if (pianoLigado) {
-    var display = document.getElementById("display");
-    var opcaoSelecionada = display.innerText;
-    switch (opcaoSelecionada) {
-      case "Tocar Total Eclipse of the Heart":
-        playTurn();
-        display.innerText = "Parar Total Eclipse of the Heart";
-        break;
-      case "Parar Total Eclipse of the Heart":
-        pararTodosOsAudios();
-        display.innerText = "Tocar Total Eclipse of the Heart";
-        break;
-      case "Iniciar Gravacao":
-        display.innerText = "Parar Gravacao";
-        toggleGravacao();
-        break;
-      case "Parar Gravacao":
-        toggleGravacao();
-        display.innerText = "Reproduzir Gravacao";
-        break;
-
-      case "Reproduzir Gravacao":
-        if (recordedData.length === 0) {
-          display.innerText = "Nenhuma Gravacao";
-        } else reproduzirGravacao();
-        display.innerText = "Parar Reproducao";
-        break;
-
-      case "Parar Reproducao":
-        pararReproducao();
-        display.innerText = "Reproduzir Gravacao";
-        break;
-
-      case "Mostrar Notas":
-        display.innerText = "Ocultar Notas";
-        mostrarNotas();
-        break;
-
-      case "Ocultar Notas":
-        display.innerText = "Mostrar Notas";
-        ocultarNotas();
-        break;
-      default:
-    }
-  }
-}
-
-function moverParaCima() {
-  if (indiceAtual > 0 && pianoLigado && podeMudar) {
-    indiceAtual--;
-    mostrarOpcao();
-  }
-}
-
-function moverParaBaixo() {
-  if (indiceAtual < opcoes.length - 1 && pianoLigado && podeMudar) {
-    indiceAtual++;
-    mostrarOpcao();
-  }
-}
-
+// Funções para mostrar e ocultar notas no display
 function mostrarNotas() {
-  var display = document.getElementById("display");
+  let display = document.getElementById("display");
   display.innerText = "Ocultar Notas";
-  var notas = document.querySelectorAll(".notas");
-  for (var i = 0; i < notas.length; i++) {
+  let notas = document.querySelectorAll(".notas");
+  for (let i = 0; i < notas.length; i++) {
     notas[i].style.visibility = "visible";
   }
   console.log("Mostrando notas");
 }
 
 function ocultarNotas() {
-  var display = document.getElementById("display");
+  let display = document.getElementById("display");
   display.innerText = "Mostrar Notas";
-  var notas = document.querySelectorAll(".notas");
-  for (var i = 0; i < notas.length; i++) {
+  let notas = document.querySelectorAll(".notas");
+  for (let i = 0; i < notas.length; i++) {
     notas[i].style.visibility = "hidden";
   }
   console.log("Ocultando notas");
 }
 
+// Função para desligar todas as luzes do piano
 function desligarLuzes() {
-  var luzinha1 = document.getElementById("luzinha1");
-  var luzinha2 = document.getElementById("luzinha2");
-  var luzinha3 = document.getElementById("luzinha3");
-  var luzinha4 = document.getElementById("luzinha4");
+  let luzinha1 = document.getElementById("luzinha1");
+  let luzinha2 = document.getElementById("luzinha2");
+  let luzinha3 = document.getElementById("luzinha3");
+  let luzinha4 = document.getElementById("luzinha4");
 
-  var luzes = [luzinha1, luzinha2, luzinha3, luzinha4];
+  let luzes = [luzinha1, luzinha2, luzinha3, luzinha4];
 
-  for (var i = 0; i < luzes.length; i++) {
+  for (let i = 0; i < luzes.length; i++) {
     luzes[i].style.backgroundColor = "black";
   }
 }
 
+// Função para ligar as luzes correspondentes ao botão pressionado
 function ligarLuzes(botao) {
   if (!desligado) {
-    var todasAsLuzes = document.querySelectorAll("[id^='luzinha']");
+    let todasAsLuzes = document.querySelectorAll("[id^='luzinha']");
     todasAsLuzes.forEach(function (luzinha) {
       luzinha.style.backgroundColor = "black";
     });
 
-    var luzinhaId = botao.id.replace("som", "luzinha");
-    var luzinha = document.getElementById(luzinhaId);
+    let luzinhaId = botao.id.replace("som", "luzinha");
+    let luzinha = document.getElementById(luzinhaId);
     if (luzinha) {
       luzinha.style.backgroundColor = "greenyellow";
     }
@@ -267,42 +225,55 @@ function ligarLuzes(botao) {
   }
 }
 
+// Função para animação de boas-vindas ao ligar o piano
 function animacaoBoasVindas() {
-  var luzes = [
+  let luzes = [
     document.getElementById("luzinha1"),
     document.getElementById("luzinha2"),
     document.getElementById("luzinha3"),
     document.getElementById("luzinha4"),
   ];
 
-  var delay = 480; // Tempo de delay entre cada ação (em milissegundos)
+  let delay = 480; // Tempo de delay entre cada ação (em milissegundos)
 
   // Função para ligar e desligar as luzes sequencialmente
   luzes.forEach((luz, index) => {
-    setTimeout(() => {
+    let timeout1 = setTimeout(() => {
+      if (!pianoLigado) return;
       luz.style.backgroundColor = "greenyellow";
     }, delay * index * 2);
 
-    setTimeout(() => {
+    let timeout2 = setTimeout(() => {
+      if (!pianoLigado) return;
       luz.style.backgroundColor = "black";
     }, delay * (index * 2 + 1));
+
+    animationTimeouts.push(timeout1, timeout2);
   });
 
   // Função para piscar todas as luzes juntas 4 vezes
   for (let i = 0; i < 8; i++) {
-    setTimeout(() => {
+    let timeout3 = setTimeout(() => {
+      if (!pianoLigado) return;
       luzes.forEach((luz) => {
         luz.style.backgroundColor = "greenyellow";
       });
     }, delay * (8 + i * 2));
 
-    setTimeout(() => {
+    let timeout4 = setTimeout(() => {
+      if (!pianoLigado) return;
       luzes.forEach((luz) => {
         luz.style.backgroundColor = "black";
       });
     }, delay * (9 + i * 2));
+
+    animationTimeouts.push(timeout3, timeout4);
   }
-  setTimeout(() => {
+
+  let timeout5 = setTimeout(() => {
+    if (!pianoLigado) return;
     luzes[0].style.backgroundColor = "greenyellow";
   }, delay * 24);
+
+  animationTimeouts.push(timeout5);
 }
