@@ -438,13 +438,6 @@ body {
 
 @media only screen and (max-width: 480px) {
   body {
-    transform-origin: top left; /* Define o ponto de origem da transformação */
-    transform: rotate(90deg) scale(0.4); /* Gira 90 graus no sentido horário e escala para 0.4 */
-    width: 100vh; /* Define a largura para ocupar a altura da tela */
-    height: 100vw; /* Define a altura para ocupar a largura da tela */
-    overflow: hidden; /* Esconde o conteúdo que se estenderia além da tela rotacionada */
-    position: fixed; /* Mantém o body fixo durante a rotação */
-    top: 0; /* Alinha o topo com a borda superior da janela */
-    left: 0; /* Alinha a esquerda com a borda esquerda da janela */
+    transform: rotate(90deg) scale(0.6); /* Gira 90 graus no sentido horário e escala para 0.4 */
   }
 }
