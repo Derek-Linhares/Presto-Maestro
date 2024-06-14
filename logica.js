@@ -11,6 +11,74 @@ let som4 = false;
 const turn = document.getElementById("turnAround");
 let audioPlayers = {};
 
+const audioFiles = [
+  "./assets/do.mp3",
+  "./assets/do2.mp3",
+  "./assets/re.mp3",
+  "./assets/re2.mp3",
+  "./assets/mi.mp3",
+  "./assets/mi2.mp3",
+  "./assets/fa.mp3",
+  "./assets/fa2.mp3",
+  "./assets/sol.mp3",
+  "./assets/sol2.mp3",
+  "./assets/la.mp3",
+  "./assets/la2.mp3",
+  "./assets/si.mp3",
+  "./assets/si2.mp3",
+  "./assets/do3.mp3",
+  "./assets/dosus2.mp3",
+  "./assets/dosus.mp3",
+  "./assets/resus2.mp3",
+  "./assets/resus.mp3",
+  "./assets/fasus2.mp3",
+  "./assets/fasus.mp3",
+  "./assets/solsus2.mp3",
+  "./assets/solsus.mp3",
+  "./assets/lasus.mp3",
+  "./assets/lasus2.mp3",
+];
+
+let loadedCount = 0;
+const totalAudios = audioFiles.length;
+
+function preloadAudio(url) {
+  return new Promise((resolve, reject) => {
+    let audio = new Audio();
+    audio.addEventListener("canplaythrough", () => {
+      console.log(`Áudio carregado: ${url}`);
+      resolve();
+    });
+    audio.src = url;
+    audio.load();
+  });
+}
+
+function preloadAllAudios() {
+  const promises = audioFiles.map((url) => preloadAudio(url));
+  return Promise.all(promises);
+}
+
+function updateLoadingProgress() {
+  const progress = (loadedCount + 1) / totalAudios; // Incrementa loadedCount antes de exibir
+  const progressBar = document.getElementById("loading-progress");
+  progressBar.style.width = `${progress * 100}%`;
+
+  const loadingText = document.getElementById("loading-text");
+  loadingText.innerText = `Carregando ${audioFiles[loadedCount]}`;
+
+  loadedCount++; // Incrementa após atualizar o texto de carregamento
+}
+
+function init() {
+  preloadAllAudios().then(() => {
+    document.getElementById("loading-overlay").style.display = "none";
+    console.log("Todos os áudios foram carregados.");
+  });
+}
+
+document.addEventListener("DOMContentLoaded", init);
+
 // Função para parar todos os áudios
 function pararTodosOsAudios() {
   let allAudioPlayers = document.querySelectorAll("audio");

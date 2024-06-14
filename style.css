@@ -380,6 +380,44 @@ body {
   border-radius: 20px;
 }
 
+#loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.8
+  ); /* Fundo branco semi-transparente */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Z-index alto para estar acima de todos os outros elementos */
+}
+
+#loading-bar {
+  width: 80%;
+  height: 20px;
+  background-color: #ddd;
+  margin-bottom: 10px;
+  position: relative;
+}
+
+#loading-progress {
+  height: 100%;
+  width: 0;
+  background-color: #3498db; /* Cor da barra de progresso */
+}
+
+#loading-text {
+  font-size: 18px;
+  color: #333;
+}
+
 @media screen and (max-height: 1081px) {
   body {
     transform: scale(1.3);
