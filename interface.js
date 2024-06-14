@@ -52,7 +52,7 @@ function alternarPiano() {
 
 // Impedir o menu de contexto padrão no documento
 document.oncontextmenu = document.body.oncontextmenu = function () {
-  return true;
+  return false;
 };
 
 // Função para alternar o estado de gravação
