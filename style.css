@@ -6,6 +6,12 @@
 
 html {
   font-size: 10px;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  touch-action: none;
 }
 
 body {
