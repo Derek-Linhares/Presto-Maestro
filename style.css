@@ -495,7 +495,7 @@ body {
 /* Resoluções menores que 900px de altura */
 @media screen and (max-height: 900px) {
   html {
-    font-size: 6px;
+    font-size: 5.5px;
   }
 }
 
