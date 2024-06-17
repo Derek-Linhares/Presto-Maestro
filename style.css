@@ -4,6 +4,10 @@
   padding: 0;
 }
 
+html {
+  font-size: 10px;
+}
+
 body {
   width: 100vw;
   height: 100vh;
@@ -17,11 +21,12 @@ body {
   overflow-x: hidden;
   overflow-y: hidden;
   transform: scale(1.8);
+  font-size: 1rem;
 }
 
 .container {
-  width: 1500px;
-  height: 400px;
+  width: 150rem;
+  height: 40rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -30,15 +35,15 @@ body {
 
 #borda {
   background-color: #ff0000;
-  width: 1400px;
-  height: 300px;
+  width: 140rem;
+  height: 30rem;
   border-top-right-radius: 20%;
   border-top-left-radius: 20%;
   display: flex;
   justify-content: center;
   align-items: end;
   border: solid black;
-  box-shadow: 8px 12px rgba(0, 0, 0, 0.8);
+  box-shadow: 0.8rem 1.2rem rgba(0, 0, 0, 0.8);
 }
 
 #teclado {
@@ -47,93 +52,95 @@ body {
 }
 
 .teclasBrancas {
-  width: 75px;
-  height: 150px;
+  width: 7.5rem;
+  height: 15rem;
   background-color: aliceblue;
   border: solid, black;
   display: flex;
   justify-content: center;
   align-items: end;
   cursor: pointer;
+  font-size: 1.6rem;
 }
 .teclasPretas {
-  width: 45px;
-  height: 100px;
+  width: 4.5rem;
+  height: 10rem;
   background-color: black;
   border: solid, black;
   display: flex;
   justify-content: center;
   align-items: end;
   cursor: pointer;
+  font-size: 1.6rem;
 }
 
 #dosus {
   color: purple;
   position: absolute;
-  left: 240px;
+  left: 24rem;
 }
 
 #resus {
   position: absolute;
-  left: 315px;
+  left: 31.5rem;
   color: green;
 }
 
 #fasus {
   position: absolute;
-  left: 465px;
+  left: 46.5rem;
   color: orange;
 }
 
 #solsus {
   position: absolute;
-  left: 540px;
+  left: 54rem;
   color: crimson;
 }
 
 #lasus {
   position: absolute;
-  left: 615px;
+  left: 61.5rem;
   color: red;
 }
 
 #dosus2 {
   color: red;
   position: absolute;
-  left: 765px;
+  left: 76.5rem;
   color: purple;
 }
 
 #resus2 {
   position: absolute;
-  left: 840px;
+  left: 84rem;
   color: green;
 }
 
 #fasus2 {
   position: absolute;
-  left: 990px;
+  left: 99rem;
   color: orange;
 }
 
 #solsus2 {
   position: absolute;
-  left: 1065px;
+  left: 106.5rem;
   color: crimson;
 }
 
 #lasus2 {
   position: absolute;
-  left: 1140px;
+  left: 114rem;
   color: red;
 }
 
 #marca {
   position: absolute;
-  top: 150px;
-  left: 1100px;
+  top: 15.5rem;
+  left: 110rem;
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
-  font-size: 40px;
+  font-size: 4rem;
   font-family: "Great Vibes", cursive;
   font-weight: 400;
   font-style: bold;
@@ -144,51 +151,51 @@ body {
   justify-content: center;
   align-items: center;
   text-align: center;
-  width: 100px;
+  width: 10rem;
   position: absolute;
-  top: 270px;
-  left: 70px;
+  top: 27rem;
+  left: 7rem;
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
-  font-size: 30px;
+  font-size: 3rem;
   font-family: "Great Vibes", cursive;
   font-weight: 400;
   font-style: bold;
 }
 
 .teclasBrancas:active {
-  transform: translateY(1px);
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  transform: translateY(0.1rem);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
 }
 
 .teclasPretas:active {
-  transform: translateY(1px);
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  transform: translateY(0.1rem);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
 }
 
 #ligar {
   position: absolute;
-  top: 160px;
-  left: 220px;
+  top: 16rem;
+  left: 22rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
+  gap: 1rem;
 }
 
 #imagem {
-  width: 20px;
-  height: 20px;
+  width: 2rem;
+  height: 2rem;
   background-image: url(./assets/poder.png);
   background-size: cover;
   background-position: center;
 }
 
 #botao {
-  width: 75px;
-  height: 20px;
+  width: 7.5rem;
+  height: 2rem;
   background-color: black;
   align-items: center;
-  border-radius: 20px;
+  border-radius: 2rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -196,97 +203,99 @@ body {
 }
 
 #luz {
-  width: 40px;
-  height: 10px;
-  margin-left: -2px;
-  border-radius: 10px;
+  width: 4rem;
+  height: 1rem;
+  margin-left: -0.2rem;
+  border-radius: 1rem;
   background-color: rgb(52, 243, 52);
-  box-shadow: 1px 1px 1px rgba(115, 245, 115, 0.2);
+  box-shadow: 0.1rem 0.1rem 0.1rem rgba(115, 245, 115, 0.2);
   visibility: hidden;
 }
 
 #select {
-  width: 40px;
-  height: 40px;
+  width: 4rem;
+  height: 4rem;
   border-radius: 100%;
   background-color: #4c4b63;
   cursor: pointer;
   position: absolute;
-  top: 102px;
-  left: 915px;
+  top: 10.2rem;
+  left: 91.5rem;
+  border: 0.5rem solid #2f2f37;
+  box-shadow: 0.1rem 0.2rem rgba(0, 0, 0, 0.55);
 }
 
 #triangulo-para-baixo {
   width: 0;
   height: 0;
-  border-left: 25px solid transparent;
-  border-right: 25px solid transparent;
-  border-top: 25px solid #949396;
+  border-left: 2.5rem solid transparent;
+  border-right: 2.5rem solid transparent;
+  border-top: 2.5rem solid #949396;
   cursor: pointer;
   position: absolute;
-  top: 150px;
-  left: 910px;
+  top: 15rem;
+  left: 91rem;
 }
 
 #triangulo-para-cima {
   width: 0;
   height: 0;
-  border-left: 25px solid transparent;
-  border-right: 25px solid transparent;
-  border-bottom: 25px solid #949396;
+  border-left: 2.5rem solid transparent;
+  border-right: 2.5rem solid transparent;
+  border-bottom: 2.5rem solid #949396;
   cursor: pointer;
   position: absolute;
-  top: 70px;
-  left: 910px;
+  top: 7rem;
+  left: 91rem;
 }
 
 #triangulo-para-cima:active {
-  transform: translateY(1px);
+  transform: translateY(0.1rem);
 }
 
 #select:active {
-  transform: translateY(1px);
+  transform: translateY(0.1rem);
 }
 
 #triangulo-para-baixo:active {
-  transform: translateY(1px);
+  transform: translateY(0.1rem);
 }
 
 #displaybox {
   font-family: "DS-Digital", sans-serif;
   text-align: center;
   display: flex;
-  border-radius: 15px;
+  border-radius: 1.5rem;
   justify-content: center;
   align-items: center;
-  font-size: 30px;
-  width: 280px;
-  height: 130px;
+  font-size: 3rem;
+  width: 28rem;
+  height: 13rem;
   position: absolute;
   background-color: black;
-  top: 60px;
-  left: 612px;
-  border: 5px solid black;
-  padding: 15px;
+  top: 6rem;
+  left: 61.2rem;
+  border: 0.5rem solid black;
+  padding: 1.5rem;
 }
 
 #vidro {
-  width: 280px;
-  height: 130px;
+  width: 28rem;
+  height: 13rem;
   position: absolute;
-  border-radius: 15px;
+  border-radius: 1.5rem;
   background: rgba(255, 255, 255, 0.15);
 
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(0.3px);
-  -webkit-backdrop-filter: blur(4px);
-  border: 1px solid rgba(8, 8, 8, 0.11);
+  box-shadow: 0 0.4rem 3rem rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(0.03rem);
+  -webkit-backdrop-filter: blur(0.4rem);
+  border: 0.1rem solid rgba(8, 8, 8, 0.11);
 }
 
 .notas {
   visibility: hidden;
-  width: 35px;
-  height: 33px;
+  width: 3.5rem;
+  height: 3.3rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -295,89 +304,147 @@ body {
 }
 
 .botaoSom {
-  width: 40px;
-  height: 30px;
+  width: 4rem;
+  height: 3rem;
   background-color: #4c4b63;
-  border: 5px solid #2f2f37;
+  border: 0.5rem solid #2f2f37;
 }
 
 #som1 {
   position: absolute;
-  top: 130px;
-  left: 370px;
+  top: 13rem;
+  left: 37rem;
   cursor: pointer;
+  box-shadow: 0.1rem 0.2rem rgba(0, 0, 0, 0.55);
 }
 
 #som2 {
   position: absolute;
-  top: 130px;
-  left: 420px;
+  top: 13rem;
+  left: 42rem;
   cursor: pointer;
+  box-shadow: 0.1rem 0.2rem rgba(0, 0, 0, 0.55);
 }
 
 #som3 {
   position: absolute;
-  top: 130px;
-  left: 470px;
+  top: 13rem;
+  left: 47rem;
   cursor: pointer;
+  box-shadow: 0.1rem 0.2rem rgba(0, 0, 0, 0.55);
 }
 
 #som4 {
   position: absolute;
-  top: 130px;
-  left: 520px;
+  top: 13rem;
+  left: 52rem;
   cursor: pointer;
+  box-shadow: 0.1rem 0.2rem rgba(0, 0, 0, 0.55);
 }
 
 .botaoSom:active {
-  transform: translateY(1px);
+  transform: translateY(0.1rem);
 }
-
-#luzinha1 {
-  width: 40px;
-  height: 10px;
+.leds {
+  width: 4rem;
+  height: 1rem;
   background-color: black;
-  border: 4px solid black;
-  position: absolute;
-  top: 115px;
-  left: 370px;
+  border: 0.4rem solid black;
+
   cursor: default;
-  border-radius: 20px;
+  border-radius: 2rem;
   z-index: 5;
+}
+#luzinha1 {
+  position: absolute;
+  top: 11.5rem;
+  left: 37rem;
 }
 
 #luzinha2 {
-  width: 40px;
-  height: 10px;
-  background-color: black;
-  border: 4px solid black;
   position: absolute;
-  top: 115px;
-  left: 420px;
-  cursor: default;
-  border-radius: 20px;
+  top: 11.5rem;
+  left: 42rem;
 }
 #luzinha3 {
-  width: 40px;
-  height: 10px;
-  background-color: black;
-  border: 4px solid black;
   position: absolute;
-  top: 115px;
-  left: 470px;
-  cursor: default;
-  border-radius: 20px;
+  top: 11.5rem;
+  left: 47rem;
 }
 #luzinha4 {
-  width: 40px;
-  height: 10px;
-  background-color: black;
-  border: 4px solid black;
   position: absolute;
-  top: 115px;
-  left: 520px;
-  cursor: default;
-  border-radius: 20px;
+  top: 11.5rem;
+  left: 52rem;
+}
+
+.diamante {
+  width: 3.5rem;
+  height: 3.5rem;
+  position: absolute;
+  background-color: #4c4b63;
+  border: 0.5rem solid #2f2f37;
+  transform: rotate(315deg);
+  box-shadow: 0.1rem 0.2rem rgba(0, 0, 0, 0.55);
+  cursor: pointer;
+}
+
+#botaoMusicas {
+  top: 10.5rem;
+  left: 99rem;
+}
+
+#botaoMusicas:active {
+  transform: rotate(315deg) translateY(0.1rem); /* Aplicando translateY quando o botão está ativo */
+}
+
+#botaoRitmos {
+  position: absolute;
+  top: 10.5rem;
+  left: 105rem;
+}
+
+#botaoRitmos:active {
+  transform: rotate(315deg) translateY(0.1rem); /* Aplicando translateY quando o botão está ativo */
+}
+
+#botaoOpcoes {
+  position: absolute;
+  top: 10.5rem;
+  left: 111rem;
+}
+
+#botaoOpcoes:active {
+  transform: rotate(315deg) translateY(0.1rem); /* Aplicando translateY quando o botão está ativo */
+}
+
+#musicas {
+  transform: rotate(-45deg);
+  position: absolute;
+  top: 10.1rem;
+  font-size: 0.95rem;
+  font-family: "Bebas Neue", sans-serif;
+  font-weight: bolder;
+  left: 97.6rem;
+}
+
+#ritmos {
+  transform: rotate(-45deg);
+  position: absolute;
+  top: 10.3rem;
+  left: 103.7rem;
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 0.95rem;
+  font-weight: bolder;
+}
+
+#opcoes {
+  transform: rotate(-45deg);
+  position: absolute;
+  top: 10.3rem;
+  font-size: 0.95rem;
+  font-family: "Bebas Neue", sans-serif;
+  font-weight: bolder;
+  left: 109.7rem;
 }
 
 #loading-overlay {
@@ -401,9 +468,9 @@ body {
 
 #loading-bar {
   width: 80%;
-  height: 20px;
+  height: 2rem;
   background-color: #ddd;
-  margin-bottom: 10px;
+  margin-bottom: 1rem;
   position: relative;
 }
 
@@ -414,30 +481,55 @@ body {
 }
 
 #loading-text {
-  font-size: 18px;
+  font-size: 1.8rem;
   color: #333;
 }
 
-@media screen and (max-height: 1081px) {
-  body {
-    transform: scale(1.3);
+/* Resoluções menores que 1080px de altura */
+@media screen and (max-height: 1080px) {
+  html {
+    font-size: 7.5px;
   }
 }
 
+/* Resoluções menores que 900px de altura */
 @media screen and (max-height: 900px) {
-  body {
-    transform: scale(1.2);
+  html {
+    font-size: 6.5px;
   }
 }
 
+/* Resoluções menores que 768px de altura */
 @media screen and (max-height: 768px) {
-  body {
-    transform: scale(0.9);
+  html {
+    font-size: 5.5px;
   }
 }
 
-@media only screen and (max-width: 480px) {
-  body {
-    transform: rotate(90deg) scale(0.6); /* Gira 90 graus no sentido horário e escala para 0.4 */
+/* Resoluções menores que 600px de altura */
+@media screen and (max-height: 600px) {
+  html {
+    font-size: 4.5px;
+  }
+}
+
+/* Resoluções menores que 480px de altura */
+@media screen and (max-height: 480px) {
+  html {
+    font-size: 3.5px;
+  }
+}
+
+/* Resoluções menores que 360px de altura */
+@media screen and (max-height: 360px) {
+  html {
+    font-size: 2.5px;
+  }
+}
+
+/* Resoluções menores que 320px de altura */
+@media screen and (max-height: 320px) {
+  html {
+    font-size: 1.5px;
   }
 }
