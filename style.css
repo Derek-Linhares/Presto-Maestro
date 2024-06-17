@@ -502,34 +502,34 @@ body {
 /* Resoluções menores que 768px de altura */
 @media screen and (max-height: 768px) {
   html {
-    font-size: 4.5px;
+    font-size: 4px;
   }
 }
 
 /* Resoluções menores que 600px de altura */
 @media screen and (max-height: 600px) {
   html {
-    font-size: 3.5px;
+    font-size: 3px;
   }
 }
 
 /* Resoluções menores que 480px de altura */
 @media screen and (max-height: 480px) {
   html {
-    font-size: 2.5px;
+    font-size: 2px;
   }
 }
 
 /* Resoluções menores que 360px de altura */
 @media screen and (max-height: 360px) {
   html {
-    font-size: 1.5px;
+    font-size: 1px;
   }
 }
 
 /* Resoluções menores que 320px de altura */
 @media screen and (max-height: 320px) {
   html {
-    font-size: 0.5px;
+    font-size: 0.2px;
   }
 }
