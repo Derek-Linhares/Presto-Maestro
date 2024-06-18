@@ -55,11 +55,11 @@ body {
 .teclasBrancas {
   width: 7.5rem;
   height: 15rem;
-  background-color: aliceblue;
-  border: 0.3rem solid, black;
+  background-color: #f0f0f0; /* Cor de fundo perolada */
+  border: 0.3rem solid black;
   display: flex;
   justify-content: center;
-  align-items: end;
+  align-items: flex-end; /* Ajustei para 'flex-end' para alinhar o texto ao final */
   cursor: pointer;
   font-size: 1.6rem;
   -webkit-tap-highlight-color: rgba(
@@ -73,15 +73,26 @@ body {
   -ms-user-select: none; /* Para IE10+ */
   user-select: none; /* Padrão */
   touch-action: manipulation;
+  border-radius: 5%; /* Arredondamento das bordas */
+  box-shadow: 0 0.3rem 0.5rem rgba(0, 0, 0, 0.2),
+    /* Sombra superior */ 0 0.1rem 0.3rem rgba(255, 255, 255, 0.5) inset; /* Brilho inferior */
+  background-image: linear-gradient(
+      45deg,
+      rgba(255, 255, 255, 0.5) 25%,
+      transparent 25%
+    ),
+    linear-gradient(-45deg, rgba(255, 255, 255, 0.5) 25%, transparent 25%);
+  background-size: 1rem 1rem;
 }
+
 .teclasPretas {
   width: 4.5rem;
   height: 10rem;
-  background-color: black;
-  border: 0.4rem solid, black;
+  background-color: #000000; /* Cor de fundo das teclas pretas */
+  border: 0.4rem solid black;
   display: flex;
   justify-content: center;
-  align-items: end;
+  align-items: flex-end; /* Ajustei para 'flex-end' para alinhar o texto ao final */
   cursor: pointer;
   font-size: 1.6rem;
   -webkit-tap-highlight-color: rgba(
@@ -95,8 +106,8 @@ body {
   -ms-user-select: none; /* Para IE10+ */
   user-select: none; /* Padrão */
   touch-action: manipulation;
+  border-radius: 5%; /* Arredondamento das bordas */
 }
-
 #dosus {
   color: purple;
   position: absolute;
@@ -541,7 +552,6 @@ body {
   html {
     font-size: 4.5px;
     position: absolute;
-    left: -70px;
   }
 }
 
@@ -550,7 +560,6 @@ body {
   html {
     font-size: 3.7px;
     position: absolute;
-    left: -50px;
   }
 }
 

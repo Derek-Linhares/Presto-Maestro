@@ -243,7 +243,7 @@ function animacaoBoasVindas() {
   luzes.forEach((luz, index) => {
     let timeout1 = setTimeout(() => {
       if (!pianoLigado) return;
-      luz.style.backgroundColor = "greenyellow";
+      luz.style.backgroundColor = "red";
     }, delay * index * 2);
 
     let timeout2 = setTimeout(() => {
@@ -259,7 +259,7 @@ function animacaoBoasVindas() {
     let timeout3 = setTimeout(() => {
       if (!pianoLigado) return;
       luzes.forEach((luz) => {
-        luz.style.backgroundColor = "greenyellow";
+        luz.style.backgroundColor = "red";
       });
     }, delay * (8 + i * 2));
 
