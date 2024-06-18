@@ -99,10 +99,13 @@ function pararReproducao() {
 document
   .querySelectorAll(".teclasBrancas, .teclasPretas")
   .forEach(function (tecla) {
-    tecla.addEventListener("mousedown", function () {
+    tecla.addEventListener("mousedown", tocarNota);
+    tecla.addEventListener("touchstart", tocarNota);
+    function tocarNota(event) {
+      event.preventDefault();
       let idNota = this.id;
       tocarSomPiano(idNota);
-    });
+    }
   });
 
 // Mensagem a ser exibida no display
