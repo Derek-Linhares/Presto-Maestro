@@ -9,9 +9,8 @@ Este é um projeto que visa criar uma experiência de piano totalmente digital, 
 ## Funcionalidades Principais
 
 - **Teclas de Piano Interativas:** Pressione as teclas no teclado virtual para reproduzir notas musicais.
-- **Variedade de Sons:** Oferecemos uma gama de sons de piano para escolher, desde pianos clássicos até eletric pianos modernos.
 - **Gravação e Reprodução:** Grave suas performances e reproduza-as para criar um acompanhamento ou revisar seu progresso.
-- **Compatibilidade com Dispositivos:** O Piano Virtual é projetado para funcionar perfeitamente em desktops, tablets e dispositivos móveis.
+
 
 ## Como Contribuir
 
@@ -29,9 +28,7 @@ Para começar a usar o Piano Virtual, siga estas etapas simples:
 2. Abra o arquivo `index.html` em seu navegador da web.
 3. Comece a tocar! Use as teclas do teclado virtual para reproduzir suas músicas favoritas.
 
-## Créditos
 
-Este projeto é mantido por Derek Linhares e foi desenvolvido com amor e paixão pela música. Agradecemos a todos os contribuidores que ajudaram a tornar este projeto uma realidade.
 
 
 Divirta-se tocando! 🎶
