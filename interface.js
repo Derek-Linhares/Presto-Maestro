@@ -31,6 +31,7 @@ function alternarPiano() {
     mostrarMensagem();
   } else {
     desligarLuzes();
+    ocultarNotas()
     podeMudar = false;
     pararTodosOsAudios();
     podeMostrar = false;
