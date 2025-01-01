@@ -198,7 +198,7 @@ function selecionarOpcao() {
       case "Parar Somewhere Over the Rainbow":
         pararTodosOsAudios();
 
-        display.innerText = "Somewhere Over the Rainbow";
+        display.innerText = "tocar Somewhere Over the Rainbow";
         break;
       case "Tocar Can't Help Falling In Love":
         playMusic(falling);
