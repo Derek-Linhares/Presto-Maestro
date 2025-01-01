@@ -25,6 +25,19 @@
         <div id="loading-text">Carregando...</div>
     </div>
 
+    <div id="aviso">
+        <div id="textBox">
+            <h1>Aviso Importante</h1>
+
+            <p>Esta aplicação não é compatível com dispositivos móveis, como celulares ou tablets. Para garantir a
+                melhor
+                experiência de uso, solicitamos que a acesse utilizando um computador desktop ou notebook. <br>
+                Agradecemos a sua compreensão.
+            </p>
+        </div>
+
+    </div>
+
 
 
     <div class="container">
@@ -112,31 +125,35 @@
                 <div id="triangulo-para-baixo" onclick="moverParaBaixo()"></div>
                 <div id="triangulo-para-cima" onclick="moverParaCima()"></div>
                 <div class="leds" id="luzinha1"></div>
-                <div class="botaoSom" id="som1" onclick="ligarLuzes(this)">
+                <div class="botaoSom" id="som1" onclick="ligarLuzes(this); teclaPiano()">
 
                 </div>
                 <div class="leds" id="luzinha2"></div>
-                <div class="botaoSom" id="som2" onclick="ligarLuzes(this)">
+                <div class="botaoSom" id="som2" onclick="ligarLuzes(this); outroSom()">
 
                 </div>
                 <div class="leds" id="luzinha3"></div>
-                <div class="botaoSom" id="som3" onclick="ligarLuzes(this)">
+                <div class="botaoSom" id="som3" onclick="ligarLuzes(this); outroSom()">
 
                 </div>
                 <div class="leds" id="luzinha4"></div>
-                <div class="botaoSom" id="som4" onclick="ligarLuzes(this)">
+                <div class="botaoSom" id="som4" onclick="ligarLuzes(this); outroSom()">
 
                 </div>
+                <div id="pianoText">Piano</div>
+                <div id="guitarText">Guitar</div>
+                <div id="organText">Organ</div>
+                <div id="accordionText">Accordion</div>
                 <div id="displaybox">
                     <div id="display"></div>
                     <div id="vidro"></div>
                 </div>
 
-                <div class="diamante" id="botaoMusicas"></div>
+                <div class="diamante" id="botaoMusicas" onclick="mostrarMusicas()"></div>
 
-                <div class="diamante" id="botaoRitmos"></div>
+                <div class="diamante" id="botaoRitmos" onclick="outroSom()"></div>
 
-                <div class="diamante" id="botaoOpcoes"></div>
+                <div class="diamante" id="botaoOpcoes" onclick="mostrarConfigs()"></div>
 
                 <div id="musicas">MÚSICAS</div>
                 <div id="ritmos">RITMOS</div>
@@ -148,7 +165,9 @@
                     </div>
                     <div id="botao" onclick="alternarPiano()">
                         <div id="luz"></div>
+
                     </div>
+                    <div id="textoLigar">ON/OFF</div>
                 </div>
             </div>
         </div>
@@ -158,6 +177,8 @@
 
 
     <audio src="./assets/turnAround.mp3" id="turnAround"></audio>
+    <audio src="./assets/falling.mp3" id="falling"></audio>
+    <audio src="./assets/some.mp3" id="some"></audio>
 
 
 

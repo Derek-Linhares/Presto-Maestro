@@ -31,7 +31,7 @@ function alternarPiano() {
     mostrarMensagem();
   } else {
     desligarLuzes();
-    ocultarNotas()
+    ocultarNotas();
     podeMudar = false;
     pararTodosOsAudios();
     podeMostrar = false;
@@ -142,10 +142,25 @@ function piscar() {
       if (count === 9) {
         clearInterval(piscarInterval);
         piscarInterval = null;
-        display.textContent = "Tocar Total Eclipse of the Heart";
+        display.textContent = "Piano";
         podeMudar = true;
       }
     }, 600);
+  }
+}
+
+function teclaPiano() {
+  if (podeMudar) {
+    display.textContent = "Piano";
+  }
+}
+
+function outroSom() {
+  if (podeMudar) {
+    setTimeout(() => {
+      display.textContent = "Piano";
+    }, 2000);
+    display.textContent = "em desenvolvimento";
   }
 }
 
@@ -206,22 +221,22 @@ function ligarLuzes(botao) {
         som4 = false;
         break;
       case "luzinha2":
-        som1 = false;
-        som2 = true;
+        som1 = true;
+        som2 = false;
         som3 = false;
         som4 = false;
         break;
       case "luzinha3":
-        som1 = false;
+        som1 = true;
         som2 = false;
-        som3 = true;
+        som3 = false;
         som4 = false;
         break;
       case "luzinha4":
-        som1 = false;
+        som1 = true;
         som2 = false;
         som3 = false;
-        som4 = true;
+        som4 = false;
         break;
       default:
         break;

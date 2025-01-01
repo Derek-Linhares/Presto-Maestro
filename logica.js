@@ -9,7 +9,11 @@ let som2 = false;
 let som3 = false;
 let som4 = false;
 const turn = document.getElementById("turnAround");
+const falling = document.getElementById("falling");
+const some = document.getElementById("some");
 let audioPlayers = {};
+let showMusicas = false;
+let showConfigs = false;
 
 const audioFiles = [
   "./assets/do.mp3",
@@ -103,42 +107,6 @@ function tocarSomPiano(idNota) {
       recordedData.push({ note: idNota, time: time });
     }
   }
-
-  if (pianoLigado && som2) {
-    som1 = false;
-    som3 = false;
-    som4 = false;
-    if (audioAtual && !audioAtual.paused && !audioAtual.error) {
-      // Parar a reprodução do áudio anterior
-      audioAtual.pause();
-      audioAtual.currentTime = 0;
-
-      // Aguardar até que o áudio seja pausado antes de continuar
-      audioAtual.onpause = function () {
-        // Criar um novo elemento de áudio para a nota atual
-        let audio = new Audio(`./assets/ocarina/${idNota}.mp3`);
-        audio.currentTime = 0;
-        audio.play();
-        audioAtual = audio;
-
-        if (isRecording) {
-          let time = new Date().getTime();
-          recordedData.push({ note: idNota, time: time });
-        }
-      };
-    } else {
-      // Se o áudio anterior não estiver definido, pausado ou estiver com erro, apenas toque o próximo áudio
-      let audio = new Audio(`./assets/ocarina/${idNota}.mp3`);
-      audio.currentTime = 0;
-      audio.play();
-      audioAtual = audio;
-
-      if (isRecording) {
-        let time = new Date().getTime();
-        recordedData.push({ note: idNota, time: time });
-      }
-    }
-  }
 }
 
 function excluirGravacao() {
@@ -152,28 +120,58 @@ function playSound(audio) {
 }
 
 // Função para tocar o som de turno
-function playTurn() {
+function playMusic(music) {
   if (pianoLigado) {
-    playSound(turn);
+    pararTodosOsAudios();
+    playSound(music);
   } else {
     pararTodosOsAudios();
   }
 }
 
 // Opções disponíveis no display
-let opcoes = [
+let opcoes = ["Piano"];
+
+let musicas = [
   "Tocar Total Eclipse of the Heart",
+  "Tocar Somewhere Over the Rainbow",
+  "Tocar Can't Help Falling In Love",
+];
+
+let configs = [
   "Iniciar Gravacao",
   "Reproduzir Gravacao",
   "Excluir Gravacao",
   "Mostrar Notas",
 ];
 let indiceAtual = 0;
+function mostrarMusicas() {
+  if (podeMudar && pianoLigado) {
+    showMusicas = true;
+    showConfigs = false;
+    indiceAtual = 0; // Reinicia o índice para evitar erros de seleção
+    opcoes = musicas; // Define as músicas como opções
+    mostrarOpcao();
+  }
+}
 
-// Função para mostrar a opção atual no display
+function mostrarConfigs() {
+  if (podeMudar && pianoLigado) {
+    showConfigs = true;
+    showMusicas = false;
+    indiceAtual = 0; // Reinicia o índice para evitar erros de seleção
+    opcoes = configs; // Define as configurações como opções
+    mostrarOpcao();
+  }
+}
+
 function mostrarOpcao() {
   let display = document.getElementById("display");
-  display.innerText = opcoes[indiceAtual];
+  if (showMusicas || showConfigs) {
+    display.innerText = opcoes[indiceAtual];
+  } else {
+    display.innerText = "Piano"; // Padrão quando nenhuma opção é selecionada
+  }
 }
 
 // Função para selecionar uma opção no display
@@ -183,7 +181,7 @@ function selecionarOpcao() {
     let opcaoSelecionada = display.innerText;
     switch (opcaoSelecionada) {
       case "Tocar Total Eclipse of the Heart":
-        playTurn();
+        playMusic(turn);
         opcoes[0] = "Parar Total Eclipse of the Heart";
         display.innerText = "Parar Total Eclipse of the Heart";
         break;
@@ -192,6 +190,27 @@ function selecionarOpcao() {
         opcoes[0] = "Tocar Total Eclipse of the Heart";
         display.innerText = "Tocar Total Eclipse of the Heart";
         break;
+      case "Tocar Somewhere Over the Rainbow":
+        playMusic(some);
+        opcoes[0] = "Parar Somewhere Over the Rainbow";
+        display.innerText = "Parar Somewhere Over the Rainbow";
+        break;
+      case "Parar Somewhere Over the Rainbow":
+        pararTodosOsAudios();
+        opcoes[0] = "Tocar Somewhere Over the Rainbow";
+        display.innerText = "Somewhere Over the Rainbow";
+        break;
+      case "Tocar Can't Help Falling In Love":
+        playMusic(falling);
+        opcoes[0] = "Parar Can't Help Falling In Love";
+        display.innerText = "Parar Can't Help Falling In Love";
+        break;
+      case "Parar Can't Help Falling In Love":
+        pararTodosOsAudios();
+        opcoes[0] = "Tocar Can't Help Falling In Love";
+        display.innerText = "Tocar Can't Help Falling In Love";
+        break;
+
       case "Iniciar Gravacao":
         display.innerText = "Parar Gravacao";
         toggleGravacao();
