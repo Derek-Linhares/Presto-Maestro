@@ -182,32 +182,32 @@ function selecionarOpcao() {
     switch (opcaoSelecionada) {
       case "Tocar Total Eclipse of the Heart":
         playMusic(turn);
-        opcoes[0] = "Parar Total Eclipse of the Heart";
+
         display.innerText = "Parar Total Eclipse of the Heart";
         break;
       case "Parar Total Eclipse of the Heart":
         pararTodosOsAudios();
-        opcoes[0] = "Tocar Total Eclipse of the Heart";
+
         display.innerText = "Tocar Total Eclipse of the Heart";
         break;
       case "Tocar Somewhere Over the Rainbow":
         playMusic(some);
-        opcoes[0] = "Parar Somewhere Over the Rainbow";
+
         display.innerText = "Parar Somewhere Over the Rainbow";
         break;
       case "Parar Somewhere Over the Rainbow":
         pararTodosOsAudios();
-        opcoes[0] = "Tocar Somewhere Over the Rainbow";
+
         display.innerText = "Somewhere Over the Rainbow";
         break;
       case "Tocar Can't Help Falling In Love":
         playMusic(falling);
-        opcoes[0] = "Parar Can't Help Falling In Love";
+
         display.innerText = "Parar Can't Help Falling In Love";
         break;
       case "Parar Can't Help Falling In Love":
         pararTodosOsAudios();
-        opcoes[0] = "Tocar Can't Help Falling In Love";
+
         display.innerText = "Tocar Can't Help Falling In Love";
         break;
 
